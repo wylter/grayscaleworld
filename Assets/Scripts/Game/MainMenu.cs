@@ -26,6 +26,8 @@ public class MainMenu : MonoBehaviour {
     [SerializeField]
     private AudioClip menuMusic;
 
+    private bool initialized = false;
+
     private void Start() {
         initResolutions();
         initFullscreenToggle();
@@ -33,6 +35,7 @@ public class MainMenu : MonoBehaviour {
     }
 
     private void initResolutions() {
+
         //Getting of the resolutions
         resolutions = Screen.resolutions;
 
@@ -54,7 +57,10 @@ public class MainMenu : MonoBehaviour {
         resolutionDropdown.AddOptions(options);
         //Sets the default resolution and refresh the dropdown
         resolutionDropdown.value = currentResolution;
+
         resolutionDropdown.RefreshShownValue();
+
+        initialized = true;
     }
 
     private void initFullscreenToggle() {
@@ -87,6 +93,10 @@ public class MainMenu : MonoBehaviour {
 
     //Sets the game resolution
     public void SetResolution (int resolutionIndex) {
+        if (!initialized)
+        {
+            return;
+        }
         Screen.SetResolution(resolutions[resolutionIndex].width, resolutions[resolutionIndex].height, Screen.fullScreen);
     }
 }
