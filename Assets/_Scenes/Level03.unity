@@ -8877,6 +8877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelMusic: {fileID: 8300000, guid: d06719621b94ce54bad030a6baa24e57, type: 3}
   nextLevelName: Level04
+  recordTime: 7
 --- !u!4 &2118190724
 Transform:
   m_ObjectHideFlags: 0

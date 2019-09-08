@@ -25,7 +25,7 @@ public class LevelSelect : MonoBehaviour {
 
 	// Use this for initialization
 	public void SelectLevel(string levelName) {
-        if (PlayerPrefs.GetInt(levelName) == 1)
+        if (PlayerPrefs.GetInt(levelName) >= 1)
             GameController.gameController.loadLevel(levelName);
 	}
 }

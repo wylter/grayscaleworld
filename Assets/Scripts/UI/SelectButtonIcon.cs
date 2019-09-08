@@ -6,11 +6,16 @@ using UnityEngine.UI;
 public class SelectButtonIcon : MonoBehaviour {
 	public string levelName;
 	public Sprite LevelIcon;
+    public GameObject achievementIcon;
 
 	void Start(){
-		if (PlayerPrefs.GetInt (levelName) == 1) {
+        int levelFlag = PlayerPrefs.GetInt(levelName);
+
+        if (levelFlag >= 1) {
 			Image img = GetComponent<Image> ();
 			img.sprite = LevelIcon;
-		}
-	}
+        }
+
+        achievementIcon.SetActive(levelFlag >= 2);
+    }
 }

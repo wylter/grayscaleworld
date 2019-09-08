@@ -1837,7 +1837,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 490240623}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5837994, y: 0.19987345, z: -10}
+  m_LocalPosition: {x: 2.5732603, y: 0.19979906, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 912136160}
@@ -4643,6 +4643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelMusic: {fileID: 8300000, guid: d06719621b94ce54bad030a6baa24e57, type: 3}
   nextLevelName: Level03
+  recordTime: 6
 --- !u!4 &758936305
 Transform:
   m_ObjectHideFlags: 0

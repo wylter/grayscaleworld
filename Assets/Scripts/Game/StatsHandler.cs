@@ -22,7 +22,7 @@ public class StatsHandler : MonoBehaviour {
     public void setPlayerName(string playerName) {
         PlayerPrefs.SetString("PlayerName", playerName.ToUpper());
     }
-    
+
     //Ottiene il nome del giocatore 
     public string getPlayerName() {
         return PlayerPrefs.GetString("PlayerName", "NONAME");
@@ -110,5 +110,10 @@ public class StatsHandler : MonoBehaviour {
         return "NO HIGH SCORE YET";
     }
 
+    public static void setTimeAchievement()
+    {
+        string levelName = SceneManager.GetActiveScene().name;
+        PlayerPrefs.SetInt(levelName, 2);
+    }
 
 }

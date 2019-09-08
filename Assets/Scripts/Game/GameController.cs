@@ -163,7 +163,7 @@ public class GameController : MonoBehaviour {
 
             //Initializate the Player again with the color he had before Dying.
             PlayerController playerController = playerTransfrom.GetComponent<PlayerController>();
-            playerController.initColor(playerController.getColorState());
+            playerController.initColor(false);
         }
     }
 

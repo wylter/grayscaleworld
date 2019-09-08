@@ -22,6 +22,10 @@ public class VictoryMenu : MonoBehaviour {
     private TextMeshProUGUI yourTimeText;
     [SerializeField]
     private TextMeshProUGUI timesText;
+    [SerializeField]
+    private TextMeshProUGUI beatTimeText;
+    [SerializeField]
+    private GameObject RecordTimer;
 
     //True if the game is in gameover screen.
     private bool isGameOverScreen;
@@ -68,21 +72,25 @@ public class VictoryMenu : MonoBehaviour {
 
     //write the time of the player
     private void writeTimes(float timer) {
- 
-        string timerText;
 
-        if (timer < 10) {
-            timerText = string.Format("{0:00.00}", timer);
-        }
-        else {
-            timerText = string.Format("{0:.00}", timer);
-        }
+        string timerText = FloatToStringTime(timer);
 
         yourTimeText.text = "YOUR TIME: " + timerText;
+
+        RecordTimer.SetActive(timer <= LevelInfo.levelInfo.recordTime);
 
         StatsHandler.statsHandler.saveScoreOnLevel(StatsHandler.statsHandler.getPlayerName(), timer);
 
         timesText.text = StatsHandler.statsHandler.getScoreOnLevel();
+
+        string timeToBeatText = FloatToStringTime(LevelInfo.levelInfo.recordTime);
+
+        beatTimeText.text = "TIME TO BEAT: " + timeToBeatText;
+
+        if (timer <= LevelInfo.levelInfo.recordTime)
+        {
+            StatsHandler.setTimeAchievement();
+        }
     }
 
     public void nextLevel() {
@@ -105,5 +113,21 @@ public class VictoryMenu : MonoBehaviour {
     public void GoToMenu() {
         Toogle(0);
         GameController.gameController.loadLevel("Menu");
+    }
+
+    private string FloatToStringTime(float timer)
+    {
+        string timerText;
+
+        if (timer < 10)
+        {
+            timerText = string.Format("{0:00.00}", timer);
+        }
+        else
+        {
+            timerText = string.Format("{0:.00}", timer);
+        }
+
+        return timerText;
     }
 }

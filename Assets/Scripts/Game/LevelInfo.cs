@@ -12,6 +12,8 @@ public class LevelInfo : MonoBehaviour {
     //Name of the next level]
     [Space]
     public string nextLevelName;
+    [Space]
+    public float recordTime = 0f;
 
     void Awake() {
         if (levelInfo == null)
